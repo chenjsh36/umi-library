@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+  	"strict": true,
+	  "moduleResolution": "node", // 使用 node 的逐层向上的模块解析策略，避免无法引入 '@alipay/bigfish/antd' 之类的模块
+	  "target": "es5", // 在 ts 中使用 decorator 必须要指定 target 在 es5 以上
+    "module": "esnext", // 没有该配置会导致 babel-plugin-import 失效，antd 样式丢失
+	  "allowSyntheticDefaultImports": true, // 没有该配置则无法使用 import React from 'react' 的写法、必须写为 import * as React from 'react'， 
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"] // 配置模块别名，对于 chair 项目需做更改，见下文
+    },
+    "typeRoots": ["typings"]
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
